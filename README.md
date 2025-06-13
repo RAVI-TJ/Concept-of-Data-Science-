@@ -1,8 +1,8 @@
 # 🔍 Ternary Search Tree (TST) – HPC-Based Data Science Project (2024–2025)
 
 ## 🎓 Master's Project – Concepts of Data Science  
-**Student 1:** Nuthi Raviteja Pediredla  
-**Student 2:** [Teammate Name Here]  
+**Student 1:** Nuthi Raviteja Pediredla  [2468496]
+**Student 2:** Laiba Tahir [2469634] 
 **Course:** Concepts of Data Science  
 **University:** Hasselt University  
 **Cluster Used:** Genius (VSC HPC)
@@ -54,10 +54,6 @@ This project focuses on implementing a **Ternary Search Tree (TST)** for efficie
 8. **Time Complexity Analysis**
    - Compared actual and theoretical complexity
    - Observed nearly linear scaling for insert and search
-
----
-
-## 🧪 SLURM Output Snapshot
 
 ---
 
