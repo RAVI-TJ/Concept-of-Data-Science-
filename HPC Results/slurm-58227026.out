@@ -1,0 +1,46 @@
+SLURM_JOB_ID: 58227026
+SLURM_JOB_USER: vsc37504
+SLURM_JOB_ACCOUNT: lp_h_ds_students
+SLURM_JOB_NAME: tst_ternary.slurm
+SLURM_CLUSTER_NAME: genius
+SLURM_JOB_PARTITION: batch
+SLURM_NNODES: 1
+SLURM_NODELIST: r26i27n02
+SLURM_JOB_CPUS_PER_NODE: 1
+Date: Fri Jun 13 15:58:58 CEST 2025
+Walltime: 00-00:05:00
+========================================================================
+Words inserted.
+Search 'cat': ✅ Found
+Search 'cap': ✅ Found
+Search 'cape': ✅ Found
+Search 'can': ✅ Found
+Search 'dog': ✅ Found
+Search 'dot': ✅ Found
+Search 'dove': ✅ Found
+Search 'apple': ✅ Found
+22 words inserted into the Ternary Search Tree from '/user/leuven/375/vsc37504/CPS/search_trees/insert_words.txt'.
+Total unique words inserted (after deduplication attempt): 20
+
+🔍 Exact Match Tests:
+Search 'cat': ✅ Found
+Search 'bat': ✅ Found
+Search 'car': ✅ Found
+Search 'can': ✅ Found
+Search 'cap': ✅ Found
+Search 'cape': ✅ Found
+
+🔍 Prefix Match (should NOT be found):
+Search 'ca' (prefix/non-word): ❌ Not Found
+Search 'ba' (prefix/non-word): ❌ Not Found
+Search 'cap' (exact word): ✅ Found
+Search 'c' (prefix/non-word): ❌ Not Found
+Search 'b' (prefix/non-word): ❌ Not Found
+Search 'baton' (prefix/non-word): ❌ Not Found
+Search 'catt' (prefix/non-word): ❌ Not Found
+
+58110 words inserted into the Ternary Search Tree from '/user/leuven/375/vsc37504/CPS/search_trees/corncob_lowercase.txt'.
+
+real	0m1.236s
+user	0m1.180s
+sys	0m0.018s
