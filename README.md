@@ -1,8 +1,9 @@
 # 🔍 Ternary Search Tree (TST) – HPC-Based Data Science Project (2024–2025)
 
-## 🎓 Master's Project – Concepts of Data Science  
-**Student 1:** Nuthi Raviteja Pediredla  [2468496]
-**Student 2:** Laiba Tahir [2469634] 
+## 🎓 Master's Project – Concepts of Data Science 
+
+**Students** Nuthi Raviteja Pediredla  [2468496], Laiba Tahir [2469634] 
+
 **Course:** Concepts of Data Science  
 **University:** Hasselt University  
 **Cluster Used:** Genius (VSC HPC)
