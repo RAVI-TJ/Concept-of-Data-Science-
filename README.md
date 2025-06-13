@@ -2,7 +2,7 @@
 
 ## 🎓 Master's Project – Concepts of Data Science 
 
-**Students** Nuthi Raviteja Pediredla  [2468496], Laiba Tahir [2469634] 
+**Students:** Nuthi Raviteja Pediredla  [2468496], Laiba Tahir [2469634] 
 
 **Course:** Concepts of Data Science  
 **University:** Hasselt University  
