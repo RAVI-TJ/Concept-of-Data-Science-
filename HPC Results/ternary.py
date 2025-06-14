@@ -66,7 +66,7 @@ found_words = ["cat", "cap", "cape", "can", "dog", "dot", "dove", "apple"]
 
 for word in found_words:
     result = tst.search(word)
-    print(f"Search '{word}': {'✅ Found' if result else '❌ Not Found'}")
+    print(f"Search '{word}': {' Found' if result else ' Not Found'}")
 tst.insert('abc')
 
 # Load words from the insert_words.txt file and insert into the tree
@@ -127,11 +127,11 @@ for prefix in prefixes:
     # Check if the prefix is an exact word in words_inserted
     if prefix in words_inserted:
         result = tst.search(prefix)
-        print(f"Search '{prefix}' (exact word): {'✅ Found' if result else '❌ Not Found'}")
+        print(f"Search '{prefix}' (exact word): {' Found' if result else ' Not Found'}")
     else:
         # For actual prefixes that are not full words
         result = tst.search(prefix)
-        print(f"Search '{prefix}' (prefix/non-word): {'❌ Not Found' if not result else '🚫 Wrongly Found'}")
+        print(f"Search '{prefix}' (prefix/non-word): {' Not Found' if not result else ' Wrongly Found'}")
 
 
 # Load words from the corncob_lowercase.txt file and insert into the tree
