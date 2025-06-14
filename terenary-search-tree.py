@@ -64,7 +64,7 @@ found_words = ["cat", "cap", "cape", "can", "dog", "dot", "dove", "apple"]
 
 for word in found_words:
     result = tst.search(word)
-    print(f"Search '{word}': {'✅ Found' if result else '❌ Not Found'}")
+    print(f"Search '{word}': {' Found' if result else ' Not Found'}")
 tst.insert('abc')
 
 # Load words from the insert_words.txt file and insert into the tree
@@ -103,7 +103,7 @@ for word in words_inserted:
 # Check full words
 print("🔍 Exact Match Tests:")
 for word in words_inserted:
-    print(f"Search '{word}': {'✅ Found' if tst.search(word) else '❌ Not Found'}")
+    print(f"Search '{word}': {' Found' if tst.search(word) else ' Not Found'}")
 
 # Now check that prefixes are not found
 print("\n🔍 Prefix Match (should NOT be found):")
@@ -111,7 +111,7 @@ prefixes = ["ca", "ba", "cap", "ca", "c", "b", "baton", "catt"]
 
 for prefix in prefixes:
     if prefix not in words_inserted:
-        print(f"Search '{prefix}': {'❌ Not Found' if not tst.search(prefix) else '🚫 Wrongly Found'}")
+        print(f"Search '{prefix}': {' Not Found' if not tst.search(prefix) else ' Wrongly Found'}")
 
         
         # Load words from the insert_words.txt file and insert into the tree
@@ -170,7 +170,7 @@ for i in range(step, len(all_words), step):
     insert_times.append(end_insert - start_insert)
     search_times.append(end_search - start_search)
 
-print("✅ Benchmarking complete.")
+print(" Benchmarking complete.")
 
 # Plot the results
 plt.figure(figsize=(10, 6))
