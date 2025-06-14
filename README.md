@@ -19,6 +19,8 @@ This project focuses on implementing a **Ternary Search Tree (TST)** for efficie
 - Ensure prefix-only queries are rejected
 - Benchmark performance on HPC with SLURM
 - Plot insert/search time as dataset size increases
+- Support tree traversal and word retrieval (all_strings())
+- Validate against negative test sets and edge cases
 
 ---
 
@@ -27,18 +29,21 @@ This project focuses on implementing a **Ternary Search Tree (TST)** for efficie
 1. **TST Implementation**
    - Developed `Node` and `TernarySearchTree` classes
    - Implemented `insert()`, `search()`, and `get_all_words()`
+   - all_strings() to collect all stored words
 2. **Local Testing**
    - Inserted sample words: `"cat", "cape", "can", "dog", "dot"`
    - Verified:
      - Exact matches succeed ✅
      - Prefixes return false ❌
      - Empty strings are ignored
-     - Duplicates are handled
+     - Duplicates don’t cause errors
 3. **Dataset Integration**
    - Used `corncob_lowercase.txt` (58,110 English words)
    - Confirmed all words were inserted and retrieved
+   - Retrieved full word list and matched against original
 4. **Negative Case Testing**
    - Used `not_insert_words.txt` to ensure no false matches
+   - Checked edge cases (empty strings, one-letter words)
 5. **GitHub Version Control**
    - Utilized branches and resolved merge conflicts
    - Pushed `.ipynb`, `.py`, benchmark, and SLURM script files
@@ -52,10 +57,13 @@ This project focuses on implementing a **Ternary Search Tree (TST)** for efficie
 7. **Benchmarking**
    - Measured insert/search times for increasing word counts (step = 1000)
    - Plotted results using `matplotlib`
+   - Evaluated best/mid/worst case positions (first, middle, last)
+   - Timed operations using time.time()
+   - Plotted results using matplotlib
 8. **Time Complexity Analysis**
    - Compared actual and theoretical complexity
    - Observed nearly linear scaling for insert and search
-
+   - Commented on practical memory usage trends
 ---
 
 ## 📊 Time Complexity of TST Operations
@@ -64,16 +72,22 @@ This project focuses on implementing a **Ternary Search Tree (TST)** for efficie
 - Time complexity: **O(L × log N)**
 - Each character descends one level (L = word length)
 - Binary search logic at each node → log N comparisons
+- Handles up to 60,000+ entries with stable scaling
 
 ### 🔹 `search(word)`
 - Time complexity: **O(L × log N)**
 - Follows the same path as `insert()`, without mutation
+
+### 🔹 'all_strings()'
+- Time: O(N × L) worst-case traversal to collect words
+- Used for output validation and reverse mapping
 
 ### 🔹 Space complexity
 - **O(N × L)** in the worst case
   - N = number of unique words
   - L = average word length
 - More compact than a trie; each node stores one character with three child links (left, middle, right)
+- Each node stores: 1 character, 3 pointers, 1 boolean flag (is_end)
 
 ---
 
@@ -87,21 +101,24 @@ This project focuses on implementing a **Ternary Search Tree (TST)** for efficie
   - Y-axis: time (seconds)
   - Blue: Insert
   - Green: Search
+- Benchmarked: Insert only, Search only, Combined total time
 
 ---
 
 ## 📁 Repository Structure
 ```
 .
-├── ternary_search_tree.py           # Core TST implementation
-├── benchmark_tst.py                # Benchmarking insert/search
-├── tst_terenary.slurm              # SLURM HPC script
-├── ternary-search-tree-project.ipynb # Notebook for development/testing
-├── ternary_test.out                # Output log from HPC job
-├── requirements.txt                # Dependencies
+├── ternary_search_tree.py              # Core TST logic
+├── benchmark_tst.py                    # Benchmark insert/search
+├── tst_terenary.slurm                  # SLURM job script (Genius HPC)
+├── ternary-search-tree-project.ipynb   # Development + testing notebook
+├── requirements.txt                    # Dependencies for execution
+├── ternary_test.out                    # Output from SLURM job
 └── search_trees/
-    ├── corncob_lowercase.txt       # 58,110 English words
-    └── not_insert_words.txt        # Negative test dataset
+    ├── corncob_lowercase.txt           # Full word list (~58k words)
+    ├── insert_words.txt                # Custom benchmark input
+    └── not_insert_words.txt            # Negative test cases
+
 ```
 
 ---
@@ -143,5 +160,11 @@ This project demonstrates the implementation, testing, and benchmarking of a Ter
 - Scalability shown through performance graphs
 - Practical SLURM job submission and resource management on HPC
 - Strong understanding of data structure design and complexity analysis
+- Handled edge cases and duplicates
+- Used .all_strings() for tree traversal verification
+- Benchmarked best, average, and worst-case searches
+- Clean, modular code structure for reusability
+
+
 
 This experience enhanced our skills in algorithmic thinking, benchmarking, and applying HPC in data science.

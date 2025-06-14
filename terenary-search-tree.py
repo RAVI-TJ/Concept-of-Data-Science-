@@ -184,3 +184,67 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
+import time
+import matplotlib.pyplot as plt
+
+# Load words from file
+file_path = r"C:\Users\Lenovo\Desktop\Concepts of data science\Concept-of-Data-Science-\search_trees\corncob_lowercase.txt"
+
+with open(file_path, 'r') as file:
+    all_words = [line.strip() for line in file if line.strip()]
+
+# Add 30 custom words (manually chosen or made-up)
+extra_words = [
+    'openai', 'gpt', 'neural', 'matrix', 'quantum', 'python', 'binary',
+    'search', 'tree', 'data', 'science', 'deep', 'learn', 'model', 'ai',
+    'robot', 'logic', 'compute', 'vision', 'tensor', 'embed', 'index',
+    'vector', 'graph', 'hash', 'sort', 'merge', 'split', 'node', 'leaf'
+]
+
+all_words.extend(extra_words)
+
+print(f"✅ Loaded {len(all_words)} words including 30 extra words.")
+
+# Benchmark parameters
+insert_times = []
+search_times = []
+word_counts = []
+
+# Choose how many words to increase by per step
+step = 1000
+
+# Run benchmark loop
+for i in range(step, len(all_words) + 1, step):
+    subset = all_words[:i]
+
+    # Measure insert time
+    tst = TernarySearchTree()
+    start_insert = time.time()
+    for word in subset:
+        tst.insert(word)
+    end_insert = time.time()
+
+    # Measure search time
+    start_search = time.time()
+    for word in subset:
+        tst.search(word)
+    end_search = time.time()
+
+    # Record
+    insert_times.append(end_insert - start_insert)
+    search_times.append(end_search - start_search)
+    word_counts.append(i)
+
+print("✅ Benchmarking complete.")
+
+# Plot
+plt.figure(figsize=(10, 6))
+plt.plot(word_counts, insert_times, label='Insert Time', marker='o', color='blue')
+plt.plot(word_counts, search_times, label='Search Time', marker='s', color='green')
+plt.xlabel("Number of Words")
+plt.ylabel("Time (seconds)")
+plt.title("Ternary Search Tree Performance (with 30 extra words)")
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
